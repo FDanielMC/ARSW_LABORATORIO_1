@@ -16,8 +16,10 @@ Entregar: Fuentes y documento PDF con las respuestas.
 	3. Ejecute y revise la salida por pantalla. 
 	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
     		- Inicio con 'start()':
+    
 ![image](https://github.com/FDanielMC/ARSW_LABORATORIO_1/assets/123689924/fda2aa51-03d1-4b7c-9cf9-d60fe4e1f48b)
 		- Inicio con 'run()':
+  
 ![image](https://github.com/FDanielMC/ARSW_LABORATORIO_1/assets/123689924/58d1d9ed-a95f-45e7-a21a-a511aed1c1d3)
 
 		- Esto se debe a que el método 'run()' ejecuta directamente el hilo, mientras que el método 'start()' crea el hilo y esto toma 			cierto tiempo por lo que los valores impresos salen de manera desordenada.  
