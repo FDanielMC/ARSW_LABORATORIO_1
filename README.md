@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Escuela Colombiana de Ingeniería
 ### Arquitecturas de Software
 ### Introducción al paralelismo - hilos
@@ -16,7 +15,12 @@ Entregar: Fuentes y documento PDF con las respuestas.
 	2. Inicie los tres hilos con 'start()'.
 	3. Ejecute y revise la salida por pantalla. 
 	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
+    		- Inicio con 'start()':
+![image](https://github.com/FDanielMC/ARSW_LABORATORIO_1/assets/123689924/fda2aa51-03d1-4b7c-9cf9-d60fe4e1f48b)
+		- Inicio con 'run()':
+![image](https://github.com/FDanielMC/ARSW_LABORATORIO_1/assets/123689924/58d1d9ed-a95f-45e7-a21a-a511aed1c1d3)
 
+		- Esto se debe a que el método 'run()' ejecuta directamente el hilo, mientras que el método 'start()' crea el hilo y esto toma 			cierto tiempo por lo que los valores impresos salen de manera desordenada.  
 **Parte II Hilos Java**
 
 La fórmula [BBP](https://en.wikipedia.org/wiki/Bailey%E2%80%93Borwein%E2%80%93Plouffe_formula) (Bailey–Borwein–Plouffe formula) es un algoritmo que permite calcular el enésimo dígito de PI en base 16, con la particularidad de no necesitar calcular nos n-1 dígitos anteriores. Esta característica permite convertir el problema de calcular un número masivo de dígitos de PI (en base 16) a uno [vergonzosamente paralelo](https://en.wikipedia.org/wiki/Embarrassingly_parallel). En este repositorio encontrará la implementación, junto con un conjunto de pruebas. 
