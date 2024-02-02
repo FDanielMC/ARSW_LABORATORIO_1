@@ -15,14 +15,7 @@ Entregar: Fuentes y documento PDF con las respuestas.
 	2. Inicie los tres hilos con 'start()'.
 	3. Ejecute y revise la salida por pantalla. 
 	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
-    		1. Inicio con 'start()':
-    
-![image](https://github.com/FDanielMC/ARSW_LABORATORIO_1/assets/123689924/fda2aa51-03d1-4b7c-9cf9-d60fe4e1f48b)
-		2. Inicio con 'run()':
-  
-![image](https://github.com/FDanielMC/ARSW_LABORATORIO_1/assets/123689924/58d1d9ed-a95f-45e7-a21a-a511aed1c1d3)
 
-		3. Esto se debe a que el método 'run()' ejecuta directamente el hilo, mientras que el método 'start()' crea el hilo y esto toma cierto tiempo por lo que los valores impresos salen de manera desordenada.  
 **Parte II Hilos Java**
 
 La fórmula [BBP](https://en.wikipedia.org/wiki/Bailey%E2%80%93Borwein%E2%80%93Plouffe_formula) (Bailey–Borwein–Plouffe formula) es un algoritmo que permite calcular el enésimo dígito de PI en base 16, con la particularidad de no necesitar calcular nos n-1 dígitos anteriores. Esta característica permite convertir el problema de calcular un número masivo de dígitos de PI (en base 16) a uno [vergonzosamente paralelo](https://en.wikipedia.org/wiki/Embarrassingly_parallel). En este repositorio encontrará la implementación, junto con un conjunto de pruebas. 
@@ -73,16 +66,3 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 3. Análisis.
 	- Se deja evidencia de la realización de los experimentos.
 	- Los análisis realizados son consistentes.
-=======
-# Escuela Colombiana de Ingeniería
-## Arquitecturas de Software
-
-## Introducción al paralelismo - hilos
-### Parte I Hilos Java
-1. De acuerdo con lo revisado en las lecturas, complete las clases CountThread, para que las mismas definan el ciclo de vida de un hilo que imprima por pantalla los números entre A y B.
-2. Complete el método main de la clase CountMainThreads para que:
-   i.   Cree 3 hilos de tipo CountThread, asignándole al primero el intervalo [0..99], al segundo [99..199], y al tercero [200..299].
-   ii.  Inicie los tres hilos con 'start()'.
-   iii. Ejecute y revise la salida por pantalla.
-   iv.  Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
->>>>>>> 330c989d1fc612c44fdbec4bbb6b00a4aefb2b9a
