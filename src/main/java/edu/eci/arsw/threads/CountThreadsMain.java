@@ -21,9 +21,9 @@ public class CountThreadsMain {
         CountThread thirdThread = new CountThread(200, 299);
 
         System.out.println("Hilo principal: " + Thread.currentThread().getName());
-        //firstThread.start();
-        //secondThread.start();
-        //thirdThread.start();
+        firstThread.start();
+        secondThread.start();
+        thirdThread.start();
         
         firstThread.run();
         secondThread.run();
