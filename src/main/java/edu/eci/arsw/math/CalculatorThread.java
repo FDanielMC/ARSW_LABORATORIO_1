@@ -12,19 +12,45 @@ public class CalculatorThread extends Thread {
     
     private static int DigitsPerSum = 8;
     private static double Epsilon = 1e-17;
+    private final Object lock;
     private int start;
     private int count;
+    private int state;
     private byte[] values;
+    private int numberDigits;
 
-    public CalculatorThread(int start, int count, byte[] values) {
+    public CalculatorThread(int start, int count, Object lock) {
         this.start = start;
         this.count = count;
-        this.values = values;
+        this.values = new byte[count];
+        this.lock = lock;
+        this.state = 0;
+        this.numberDigits = 0;
     }
     
     @Override
     public void run(){
-        this.values = getDigits(this.start, this.count);    
+        double sum = 0;
+        for (int i = 0; i < count; i++) {
+            try {
+                stopCurrentThread();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                Thread.currentThread().interrupt();
+            }
+            if (i % DigitsPerSum == 0) {
+                sum = 4 * sum(1, start)
+                        - 2 * sum(4, start)
+                        - sum(5, start)
+                        - sum(6, start);
+
+                start += DigitsPerSum;
+            }
+            sum = 16 * (sum - Math.floor(sum));
+            values[i] = (byte) sum;
+            numberDigits++;
+        }
+        state = 2;    
     }
     
     public byte[] getValues(){
@@ -41,33 +67,31 @@ public class CalculatorThread extends Thread {
      * @param count The number of digits to return
      * @return An array containing the hexadecimal digits.
      */
-    public static byte[] getDigits(int start, int count) {
-        if (start < 0) {
-            throw new RuntimeException("Invalid Interval");
-        }
-
-        if (count < 0) {
-            throw new RuntimeException("Invalid Interval");
-        }
-
-        byte[] digits = new byte[count];
-        double sum = 0;
-
-        for (int i = 0; i < count; i++) {
-            if (i % DigitsPerSum == 0) {
-                sum = 4 * sum(1, start)
-                        - 2 * sum(4, start)
-                        - sum(5, start)
-                        - sum(6, start);
-
-                start += DigitsPerSum;
+    public byte[] getDigits() {
+        return values;
+    }
+    
+    /**
+     * Method that is executed at each iteration of the for loop, it asks if the
+     * thread's state variable is 1 (waiting),if this happens it prints out the 
+     * number of numbers calculated so far by the thread and sleeps it with lock.wait()
+     * @throws InterruptedException 
+     */
+    private void stopCurrentThread() throws InterruptedException{
+        synchronized (lock) {
+            while (state == 1) {
+                System.out.println("Cantidad de dígitos calculados por " + Thread.currentThread().getName() + ": " + numberDigits);
+                lock.wait();
             }
-
-            sum = 16 * (sum - Math.floor(sum));
-            digits[i] = (byte) sum;
         }
-
-        return digits;
+    }
+    
+    public void changeState(int state) {
+        this.state = state;
+    }
+    
+    public boolean isRunning() {
+        return state == 0;
     }
 
     /// <summary>
@@ -132,5 +156,4 @@ public class CalculatorThread extends Thread {
 
         return result;
     }
-    
 }
