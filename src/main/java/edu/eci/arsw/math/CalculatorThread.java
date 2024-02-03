@@ -6,7 +6,10 @@ package edu.eci.arsw.math;
 
 /**
  *
- * @author moren
+ * @author Daniel Fernando Moreno Cerón
+ * @author Daniel Esteban Perez Bohorquez
+ * @author Juan Felipe Vivas Manrique
+ * @author Sergio Daniel Lopez Vargas
  */
 public class CalculatorThread extends Thread {
     
